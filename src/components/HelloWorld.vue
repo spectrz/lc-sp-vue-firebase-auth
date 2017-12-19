@@ -7,32 +7,35 @@
     Uid: {{user.uid}}
     <br>
     Last Login: {{user.metadata.lastSignInTime}}
-    <pre>{{user}}</pre>
     <br>
     <button v-on:click="logout">Logout</button>
+    <pre>{{user}}</pre>
+    
   </div>
 </template>
 
 <script>
-import firebase from 'firebase'
+//import firebase from 'firebase'
+import frb from '../../firebaseMod'
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      user: firebase.auth().currentUser
+      user: frb.auth().currentUser
     }
   },
   methods: {
     logout: function() {
-      firebase.auth().signOut().then( () => {
+      frb.auth().signOut().then( () => {
         this.$router.replace('login');
       });
     }
   }
 }
 
-//console.log(firebase.auth().currentUser);
+//console.log(frb.auth().currentUser);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

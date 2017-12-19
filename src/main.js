@@ -5,23 +5,41 @@ import App from './App'
 import router from './router'
 
 import firebase from 'firebase'
-import fbConfig from '../firebaseConfig'
+
+import vuefire from 'vuefire'
 
 Vue.config.productionTip = false
+Vue.use(vuefire)
 
-firebase.initializeApp(fbConfig);
+
 
 /* eslint-disable no-new */
-let app;
-firebase.auth().onAuthStateChanged( function(user) {
-  if ( !app ) {
-    new Vue({
-      el: '#app',
-      router,
-      template: '<App/>',
-      components: { App }
+new Vue({
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: { App },
+  created() {
+    
+    firebase.auth().onAuthStateChanged( (user) => {
+      if ( user ) {
+        this.$router.replace('/hello');
+      } else {
+        this.$router.replace('/login');
+      }
     });
   }
-  
 });
+// let app;
+// firebase.auth().onAuthStateChanged( function(user) {
+//   if ( !app ) {
+//     new Vue({
+//       el: '#app',
+//       router,
+//       template: '<App/>',
+//       components: { App }
+//     });
+//   }
+  
+// });
 

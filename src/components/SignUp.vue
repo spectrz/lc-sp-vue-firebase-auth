@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+//import firebase from 'firebase'
+import frb from '../../firebaseMod'
 
 export default {
     name: 'signup',
@@ -22,7 +23,7 @@ export default {
     },
     methods: {
         signUp: function() {
-            firebase.auth().createUserWithEmailAndPassword( this.email, this.password)
+            frb.auth().createUserWithEmailAndPassword( this.email, this.password)
                 .then(
                     function ( user ) {
                         alert('Account Created');
