@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import SignUp from '@/components/SignUp'
 import About from '@/components/About'
+import Todo from '@/components/Todo'
 
 import firebase from 'firebase'
 
@@ -44,6 +45,14 @@ let router = new Router({
       path: '/hello',
       name: 'HelloWorld',
       component: HelloWorld,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/todo',
+      name: 'todo',
+      component: Todo,
       meta: {
         requiresAuth: true
       }

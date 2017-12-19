@@ -3,6 +3,7 @@
     <router-link to="/sign-up">Sign Up</router-link>
     <router-link to="/login">Log In</router-link>
     <router-link to="/hello">Hello</router-link>
+    <router-link to="/todo">Todo</router-link>
     <router-link to="/about">About</router-link>
     <br>
     <img src="./assets/logo.png">

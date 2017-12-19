@@ -2,6 +2,13 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <br>
+    User: {{user.email}}
+    <br>
+    Uid: {{user.uid}}
+    <br>
+    Last Login: {{user.metadata.lastSignInTime}}
+    <pre>{{user}}</pre>
+    <br>
     <button v-on:click="logout">Logout</button>
   </div>
 </template>
@@ -12,7 +19,8 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      user: firebase.auth().currentUser
     }
   },
   methods: {
@@ -23,6 +31,8 @@ export default {
     }
   }
 }
+
+//console.log(firebase.auth().currentUser);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -40,5 +50,8 @@ li {
 }
 a {
   color: #42b983;
+}
+pre {
+  text-align: left;
 }
 </style>
