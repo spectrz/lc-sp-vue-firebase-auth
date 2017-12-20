@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <router-link to="/sign-up">Sign Up</router-link>
     <router-link to="/login">Log In</router-link>
     <router-link to="/hello">Hello</router-link>
