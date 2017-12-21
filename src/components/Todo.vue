@@ -14,7 +14,7 @@
     </div>
 </template> -->
 
-<template lang="jade">
+<template lang="pug">
     .todo
         h4 bam
         br

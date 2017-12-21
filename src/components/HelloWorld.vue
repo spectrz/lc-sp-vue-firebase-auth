@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
     <br>
@@ -12,6 +12,26 @@
     <pre>{{user}}</pre>
     
   </div>
+</template> -->
+
+<template lang="pug">
+  .hello
+    h1 {{msg }}
+    .panel.panel-default
+      .panel-heading
+        | Welcome
+      .panel-body
+        label User:
+        span {{user.email}}
+        br
+        label Uid:
+        span {{user.uid}}
+        br
+        label Last Login:
+        span {{user.metadata.lastSignInTime}}
+        br
+        button(v-on:click="logout") Logout
+    pre {{user}}
 </template>
 
 <script>
@@ -54,7 +74,8 @@ li {
 a {
   color: #42b983;
 }
-pre {
+.panel-body, pre {
   text-align: left;
 }
+
 </style>
